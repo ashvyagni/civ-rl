@@ -1,0 +1,10 @@
+[project]
+name = "ai-civilizations-sim-server"
+version = "0.1.0"
+description = "AI Civilizations simulation backend"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.139.0",
+    "uvicorn>=0.49.0",
+    "websockets>=16.0",
+]

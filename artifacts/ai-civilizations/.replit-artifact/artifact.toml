@@ -1,0 +1,38 @@
+kind = "web"
+previewPath = "/"
+title = "AI Civilizations"
+version = "1.0.0"
+id = "artifacts/ai-civilizations"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24355
+
+[services.development]
+run = "pnpm --filter @workspace/ai-civilizations run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ai-civilizations", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ai-civilizations/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24355"
+BASE_PATH = "/"
+
+[[services]]
+name = "sim-server"
+paths = [ "/ws" ]
+localPort = 8000
+
+[services.development]
+run = "cd /home/runner/workspace/artifacts/sim-server && /home/runner/workspace/.pythonlibs/bin/python3 server.py"
+
+[services.env]
+PORT = "8000"
