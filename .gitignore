@@ -44,6 +44,8 @@ Thumbs.db
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 
+__pycache__/
+*.pyc
 # Replit scaffold artifacts (not needed for standalone deployment)
 .cache/
 .local/
